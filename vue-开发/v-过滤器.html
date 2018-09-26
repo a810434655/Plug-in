@@ -1,17 +1,48 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>自定义过滤器</title>
 		<script src="vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
 	</head>
-	<body>
-		<div id="web"></div>
-	</body>
 	<script type="text/javascript">
-	  new Vue({
-	  	el:"web",
-	  	data:{}
-	  })
+		window.onload = function() {
+			let vm = new Vue({
+				el: "#web",
+				data: {
+					currentTime: Date.now()
+				},
+				filters: {
+					"date":
+					data => {
+						let d = new Date(data);
+						return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+					}
+				}
+			});
+			//	  自定义全局过滤器
+		}
+		Vue.filter('addZero', function(data) {
+			return data < 10 ? "0" + data : data
+		});
+		Vue.filter("addMash", (data, n) => {
+			return data.toFixed(n);
+		});
+		Vue.filter()
 	</script>
+	<style type="text/css">
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+
+	<body>
+		<div id="web">
+			<h3 v-cloak>{{8 | addZero}}</h3>
+			<h3 v-cloak>{{12.123456|addMash(1)}}</h3>
+			<h3 v-cloak>{{currentTime | date}}</h3>
+		</div>
+	</body>
+
 </html>
