@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>v-for</title>
+		<script src="vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="itany">
+		<ul>
+		<!--普通循环-->
+		<!--数组循环-->
+		<!--<li v-for="value in arr">{{ value }}</li>-->
+		<!--对象循环-->
+<!--	<li v-for="value in user">{{ value }}</li>-->
+		<!--建值循环-->
+		<!--<li v-for="(v,k) in arr">{{k}}={{v}}</li>-->	
+		<!--循环包含重复数据的集合-->
+		<!--<li v-for="(v,k) in arr" :key="k">{{k}}==={{v}}</li>-->	
+		<!--遍历数组对象-->
+		<li v-for="user in users">{{user.id}}+{{user.name}}+{{user.age}}</li>
+		<!--索引-->
+		<li v-for="(user,index) in users">{{index+1}}+{{user.id}}+{{user.name}}+{{user.age}}</li>
+		</ul></div>
+	</body>
+	<script type="text/javascript">
+		new Vue({
+			el:"#itany",
+			data:{
+				arr:[12,4,5,6,7,8,9,1,15,20,12],
+				user:{id:"9527",name:"吴鹏",age:"20"},
+				users:[{id:"9527",name:"吴鹏",age:"20"},
+				{id:"9528",name:"唐伯虎",age:"20"},
+				{id:"9529",name:"白志伟",age:"20"}]
+			}
+		})
+	</script>
+</html>

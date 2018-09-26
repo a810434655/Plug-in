@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>v-on</title>
+		<script src="vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="itany">
+		<button type="button" v-on:click="show">鼠标单击</button>
+		<button type="button" v-on:click="add">鼠标单击</button>
+		<button type="button" v-on:mouseover="show">鼠标经过</button>
+		<button type="button" v-on:dblclick="show">鼠标双击</button>
+		{{arr}}
+		</div>
+	</body>
+	<script type="text/javascript">
+		new Vue({
+			el:"#itany",
+			data:{
+			arr:[12,45,56,3,12,51,2,3,4,7,8]
+			},
+			methods:{
+				show:function(){
+					console.log("这个是vue的on");
+					alert(111);
+				},
+				add(){
+				  this.arr.push(666);
+				  this.show();
+				}
+			}
+		})
+	</script>
+</html>

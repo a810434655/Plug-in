@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>事件简写和对象</title>
+		<script src="vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="itany">
+		<!--<button type="button" @click="show">点击</button><br />-->
+		<!--<button type="button"@click="print($event)">CLICK test</button>-->
+		<!--<div @click="write"><p @click="print1"><button type="button" @click.stop="show">点我</button></p></div>
+		<hr />
+		<!--<a href="" @click="study($event)"></a>-->
+		<!--<a href="" @click.prevent="study"></a>-->
+		<!--键盘事件：@keydown、@keypress、@keyup-->
+		用户名：<input type="text" @keydown="show($event)" />
+		密码：<input type="text" @keydown.once="print" />
+		</div>
+         <!--回车：@keydown.13或者@keydown.enter-->
+	</body>
+	<script type="text/javascript">
+		Vue.config.keyCodes={
+			a:65
+		}
+		new Vue({
+			el:"#itany",
+			data:{},
+			methods:{
+//				原生版
+			   show(e){if(e.keyCode==13){console.log("你按了回车")}else{console.log("哈哈")}},
+//			   简化版
+               print(){console.log("你按了回车")}
+//			   print1(){console.log("222")},
+//			   write(){console.log("333")},
+//			   study(){console.log("444")}
+			   
+			}
+		})
+
+
+		
+	</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>v-model</title>
+		<script src="vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="itany">用户名：<input type="text" v-model="name" />
+		<hr />
+		{{name}}  <br />
+		{{age}}<br />
+		{{flag}}<br />
+	    {{nums}}<br />
+	    {{user}}
+		</div>
+	</body>
+	<script type="text/javascript">
+	new Vue({
+	el:"#itany",
+	data:{
+		name:"",
+		age:"21",
+		flag:true,
+		nums:[12,4,23,5],
+		user:{id:9527,name:"白志伟"}
+	}
+	})
+	</script>
+</html>

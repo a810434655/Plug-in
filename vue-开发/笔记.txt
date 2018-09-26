@@ -1,0 +1,39 @@
+五.vue-事件
+## 1.1事件简写
+v-on:click="事件名",
+@click="事件名"
+
+##1.2 事件对象$event
+包含事件相关信息,如事件源,事件类型,偏移量,
+target type offsetx
+
+##1.3事件冒泡
+原生js方式,依赖于事件对象
+e.stopPropagation
+vue方式不依赖事件对象
+@click.stop
+
+##1.4.事件默认行为
+原生
+e.preventDefault()	
+vue
+事件.prevent
+
+##1.5键盘事件
+<!--回车：@keydown.13或者@keydown.enter-->
+用户名：<input type="text" @keydown="show($event)" />
+ show(e){if(e.keyCode==13){console.log("你按了回车")}else{console.log("哈哈")}},
+ 没有Key的时候Vue.config.keyCodes={a:65};
+ 
+##1.6事件修饰符
+.stop - 调用 event.stopPropagation()。
+.prevent - 调用 event.preventDefault()。
+.capture - 添加事件侦听器时使用 capture 模式。
+.self - 只当事件是从侦听器绑定的元素本身触发时才触发回调。
+.{keyCode | keyAlias} - 只当事件是从特定键触发时才触发回调。
+.native - 监听组件根元素的原生事件。
+.once - 只触发一次回调。
+.left - (2.2.0) 只当点击鼠标左键时触发。
+.right - (2.2.0) 只当点击鼠标右键时触发。
+.middle - (2.2.0) 只当点击鼠标中键时触发。
+.passive - (2.3.0) 以 { passive: true } 模式添加侦听器
